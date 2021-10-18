@@ -1,0 +1,7 @@
+platform :ios, '12.4'
+
+target 'mydevice' do
+  use_frameworks!
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
+end

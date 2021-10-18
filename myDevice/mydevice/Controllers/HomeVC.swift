@@ -37,21 +37,24 @@ final class HomeVC: BaseVC {
     
     // MARK: Setup
     @objc func setupData() {
-        IDFALabel.text = DeviceHelper.IDFA
-        IDFVLabel.text = DeviceHelper.IDFV
-        
-        if !DeviceHelper.isATTSupported {
-            IDFAStatusContainerView.removeFromSuperview()
-        } else {
-            ATTStatusLabel.text = DeviceHelper.ATTStatusString
-            ATTStatusLabel.textColor = DeviceHelper.isATTAccepted ? .init(named: "main-green") : .init(named: "main-red")
+        DispatchQueue.main.async {
+            self.IDFALabel.text = DeviceHelper.IDFA
+            self.IDFVLabel.text = DeviceHelper.IDFV
+            
+            if !DeviceHelper.isATTSupported {
+                self.IDFAStatusContainerView.removeFromSuperview()
+            } else {
+                self.ATTStatusLabel.text = DeviceHelper.ATTStatusString
+                self.ATTStatusLabel.textColor = DeviceHelper.isATTAccepted ? .init(named: "main-green") : .init(named: "main-red")
+            }
+            
+            self.iOSVersionLabel.text = DeviceHelper.Device.osVersion
+            self.connectionTypeLabel.text = DeviceHelper.Device.connectionType()
+            self.countryLabel.text = DeviceHelper.Device.country
+            self.languageLabel.text = DeviceHelper.Device.language
+            self.timezoneLabel.text = DeviceHelper.Device.timezone
         }
         
-        iOSVersionLabel.text = DeviceHelper.Device.osVersion
-        connectionTypeLabel.text = DeviceHelper.Device.connectionType()
-        countryLabel.text = DeviceHelper.Device.country
-        languageLabel.text = DeviceHelper.Device.language
-        timezoneLabel.text = DeviceHelper.Device.timezone
     }
     
     // MARK: - Actions

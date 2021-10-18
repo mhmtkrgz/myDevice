@@ -11,6 +11,8 @@
 		9EC7CBB527187D18002C4DBC /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7CBB427187D18002C4DBC /* BaseVC.swift */; };
 		9ED5C2D3271D6C1000308EA7 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5C2D2271D6C1000308EA7 /* ToastView.swift */; };
 		9ED5C2D6271D6C7500308EA7 /* UIView+KKUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5C2D5271D6C7500308EA7 /* UIView+KKUtils.swift */; };
+		9ED5C2D9271DA5D700308EA7 /* DeviceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5C2D8271DA5D700308EA7 /* DeviceHelper.swift */; };
+		9ED5C2F1271DB23B00308EA7 /* UIDevice+KKUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5C2F0271DB23B00308EA7 /* UIDevice+KKUtils.swift */; };
 		9EE4CA1F27186606005F2D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4CA1E27186606005F2D89 /* AppDelegate.swift */; };
 		9EE4CA2627186606005F2D89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE4CA2427186606005F2D89 /* Main.storyboard */; };
 		9EE4CA2827186607005F2D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE4CA2727186607005F2D89 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		9EC7CBB427187D18002C4DBC /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		9ED5C2D2271D6C1000308EA7 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		9ED5C2D5271D6C7500308EA7 /* UIView+KKUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+KKUtils.swift"; sourceTree = "<group>"; };
+		9ED5C2D8271DA5D700308EA7 /* DeviceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceHelper.swift; sourceTree = "<group>"; };
+		9ED5C2F0271DB23B00308EA7 /* UIDevice+KKUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+KKUtils.swift"; sourceTree = "<group>"; };
 		9EE4CA1B27186606005F2D89 /* mydevice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mydevice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE4CA1E27186606005F2D89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EE4CA2527186606005F2D89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,8 +66,17 @@
 			isa = PBXGroup;
 			children = (
 				9ED5C2D5271D6C7500308EA7 /* UIView+KKUtils.swift */,
+				9ED5C2F0271DB23B00308EA7 /* UIDevice+KKUtils.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9ED5C2D7271DA5BF00308EA7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9ED5C2D8271DA5D700308EA7 /* DeviceHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		9EE4CA1227186606005F2D89 = {
@@ -88,6 +101,7 @@
 				9EE4CA1E27186606005F2D89 /* AppDelegate.swift */,
 				9EE4CA2427186606005F2D89 /* Main.storyboard */,
 				9EC7CBB127187CC2002C4DBC /* Controllers */,
+				9ED5C2D7271DA5BF00308EA7 /* Helpers */,
 				9ED5C2D1271D6BCF00308EA7 /* Views */,
 				9ED5C2D4271D6C4500308EA7 /* Extensions */,
 				9EE4CA2727186607005F2D89 /* Assets.xcassets */,
@@ -170,8 +184,10 @@
 			files = (
 				9ED5C2D6271D6C7500308EA7 /* UIView+KKUtils.swift in Sources */,
 				9ED5C2D3271D6C1000308EA7 /* ToastView.swift in Sources */,
+				9ED5C2F1271DB23B00308EA7 /* UIDevice+KKUtils.swift in Sources */,
 				9EE4CA1F27186606005F2D89 /* AppDelegate.swift in Sources */,
 				9EC7CBB527187D18002C4DBC /* BaseVC.swift in Sources */,
+				9ED5C2D9271DA5D700308EA7 /* DeviceHelper.swift in Sources */,
 				9EC7CBB327187D05002C4DBC /* HomeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +341,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mydevice/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "My Device";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Required for information purposes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -356,6 +373,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mydevice/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "My Device";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Required for information purposes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

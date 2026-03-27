@@ -19,25 +19,30 @@ struct ContentView: View {
                 // 1. Identifiers & Privacy
                 Section("Identifiers & Privacy") {
                     InfoRow(label: "IDFA", value: viewModel.idfa, icon: "target", color: .red, isTechnical: true)
-                    InfoRow(label: "ATT Status", value: viewModel.attStatus, icon: "hand.raised.fill", color: .orange)
+                    InfoRow(label: "ATT Status", value: viewModel.attStatus, icon: "hand.raised.fill", color: .orange, showCopyIcon: false)
+                    if viewModel.attWarningState != .none {
+                        ATTPermissionBannerView(state: viewModel.attWarningState) {
+                            await viewModel.requestATTPermission()
+                        }
+                    }
                     InfoRow(label: "IDFV", value: viewModel.idfv, icon: "building.2.fill", color: .blue, isTechnical: true)
                 }
 
                 // 2. Network Diagnostics
                 Section("Network") {
-                    InfoRow(label: "Connection", value: viewModel.connectionType, icon: "wifi", color: .blue)
+                    InfoRow(label: "Connection", value: viewModel.connectionType, icon: "wifi", color: .blue, showCopyIcon: false)
                     InfoRow(label: "Local IP", value: viewModel.localIP, icon: "network", color: .teal, isTechnical: true)
                     ForEach(viewModel.simCards) { sim in
-                        InfoRow(label: sim.label, value: sim.value, icon: sim.icon, color: .purple)
+                        InfoRow(label: LocalizedStringKey(sim.label), value: sim.value, icon: sim.icon, color: .purple, showCopyIcon: false)
                     }
                 }
 
                 // 3. System Summary
                 Section("System Summary") {
                     InfoRow(label: "Device", value: viewModel.deviceModel, icon: "iphone", color: .primary)
-                    InfoRow(label: "iOS", value: viewModel.osVersion, icon: "apps.iphone", color: .secondary)
-                    InfoRow(label: "Locale", value: viewModel.locale, icon: "map.fill", color: .red)
-                    InfoRow(label: "Timezone", value: viewModel.timezone, icon: "clock.fill", color: .cyan)
+                    InfoRow(label: "iOS", value: viewModel.osVersion, icon: "apps.iphone", color: .secondary, showCopyIcon: false)
+                    InfoRow(label: "Locale", value: viewModel.locale, icon: "map.fill", color: .red, showCopyIcon: false)
+                    InfoRow(label: "Timezone", value: viewModel.timezone, icon: "clock.fill", color: .cyan, showCopyIcon: false)
                 }
 
                 // 4. Hardware & Storage
@@ -67,10 +72,11 @@ struct ContentView: View {
                         .padding(.vertical, 4)
                     }
 
-                    InfoRow(label: "Battery", value: viewModel.battery, icon: viewModel.batteryIcon, color: .green)
+                    InfoRow(label: "Battery", value: viewModel.battery, icon: viewModel.batteryIcon, color: .green, showCopyIcon: false)
                     InfoRow(label: "Display", value: viewModel.displayResolution, icon: "iphone.gen3", color: .gray)
                 }
             }
+            .environment(\.onCopy, showToast)
             .navigationTitle("My Device")
             .listStyle(.insetGrouped)
             .toolbar {
@@ -84,8 +90,18 @@ struct ContentView: View {
             .overlay(alignment: .bottom) {
                 if showCopyToast {
                     ToastView()
+                        .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
             }
+            .animation(.spring(duration: 0.3), value: showCopyToast)
+        }
+    }
+
+    private func showToast() {
+        showCopyToast = true
+        Task {
+            try? await Task.sleep(for: .seconds(2))
+            withAnimation { showCopyToast = false }
         }
     }
 }

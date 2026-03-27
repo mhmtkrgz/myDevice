@@ -8,11 +8,13 @@
 import Foundation
 import Combine
 import UIKit
+import AppTrackingTransparency
 
 final class DeviceVM: ObservableObject {
     // MARK: - Identifiers
     @Published var idfa: String = ""
     @Published var attStatus: String = ""
+    @Published var attWarningState: ATTWarningState = .none
     @Published var idfv: String = ""
 
     // MARK: - Network
@@ -50,9 +52,7 @@ final class DeviceVM: ObservableObject {
         fmt.countStyle = .decimal
         fmt.allowedUnits = [.useGB]
         fmt.includesUnit = true
-        let used = fmt.string(fromByteCount: storageUsed)
-        let total = fmt.string(fromByteCount: storageTotal)
-        return "\(used) / \(total)"
+        return "\(fmt.string(fromByteCount: storageUsed)) / \(fmt.string(fromByteCount: storageTotal))"
     }
 
     // MARK: - Services
@@ -76,12 +76,20 @@ final class DeviceVM: ObservableObject {
         loadData()
         subscribeToBatteryUpdates()
         subscribeToNetworkUpdates()
+        subscribeToATTUpdates()
     }
 
     // MARK: - Public
+
+    func requestATTPermission() async {
+        _ = await ATTrackingManager.requestTrackingAuthorization()
+        NotificationCenter.default.post(name: .attStatusDidChange, object: nil)
+    }
+
     func refreshData() {
         idfa = deviceService.getIDFA()
         attStatus = deviceService.getATTStatus()
+        attWarningState = resolveATTWarningState()
         idfv = deviceService.getIDFV()
         updateBattery()
         updateNetwork()
@@ -89,9 +97,11 @@ final class DeviceVM: ObservableObject {
     }
 
     // MARK: - Private
+
     private func loadData() {
         idfa = deviceService.getIDFA()
         attStatus = deviceService.getATTStatus()
+        attWarningState = resolveATTWarningState()
         idfv = deviceService.getIDFV()
 
         deviceModel = deviceService.getDeviceModelName()
@@ -111,6 +121,15 @@ final class DeviceVM: ObservableObject {
         displayResolution = hardwareService.displayResolution()
     }
 
+    private func resolveATTWarningState() -> ATTWarningState {
+        switch ATTrackingManager.trackingAuthorizationStatus {
+        case .authorized:               return .none
+        case .notDetermined:            return .requestable
+        case .denied, .restricted:      return .denied
+        @unknown default:               return .none
+        }
+    }
+
     private func subscribeToBatteryUpdates() {
         batteryService.changePublisher
             .receive(on: DispatchQueue.main)
@@ -122,6 +141,18 @@ final class DeviceVM: ObservableObject {
         networkService.pathPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in self?.updateNetwork() }
+            .store(in: &cancellables)
+    }
+
+    private func subscribeToATTUpdates() {
+        NotificationCenter.default.publisher(for: .attStatusDidChange)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let self else { return }
+                self.idfa = self.deviceService.getIDFA()
+                self.attStatus = self.deviceService.getATTStatus()
+                self.attWarningState = self.resolveATTWarningState()
+            }
             .store(in: &cancellables)
     }
 

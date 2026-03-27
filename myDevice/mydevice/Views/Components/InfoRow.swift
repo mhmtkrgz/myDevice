@@ -7,19 +7,35 @@
 
 import SwiftUI
 
+// MARK: - Environment key for copy-tap feedback
+private struct OnCopyKey: EnvironmentKey {
+    static let defaultValue: () -> Void = {}
+}
+
+extension EnvironmentValues {
+    var onCopy: () -> Void {
+        get { self[OnCopyKey.self] }
+        set { self[OnCopyKey.self] = newValue }
+    }
+}
+
 // MARK: - InfoRow
 struct InfoRow: View {
-    let label: String
+    let label: LocalizedStringKey
     let value: String
     let icon: String
     let color: Color
     var isTechnical: Bool = false
+    var showCopyIcon: Bool = true
+
+    @Environment(\.onCopy) private var onCopy
 
     var body: some View {
         Button(action: {
+            guard showCopyIcon else { return }
             UIPasteboard.general.string = value
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-            // Toast tetikleme mantığı buraya eklenebilir
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+            onCopy()
         }) {
             HStack(spacing: 12) {
                 Image(systemName: icon)
@@ -38,9 +54,11 @@ struct InfoRow: View {
                         .foregroundColor(.primary)
                 }
                 Spacer()
-                Image(systemName: "doc.on.doc")
-                    .font(.system(size: 12))
-                    .foregroundColor(.secondary.opacity(0.5))
+                if showCopyIcon {
+                    Image(systemName: "doc.on.doc")
+                        .font(.system(size: 12))
+                        .foregroundColor(.secondary.opacity(0.5))
+                }
             }
         }
         .buttonStyle(.plain)

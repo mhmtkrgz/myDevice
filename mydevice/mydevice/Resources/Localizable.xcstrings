@@ -72,7 +72,7 @@
       }
     },
     "Carrier 1" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -89,7 +89,7 @@
       }
     },
     "Carrier 2" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -473,7 +473,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sürüm %@ (%@)"
+            "value" : "Versiyon %@ (%@)"
           }
         }
       }

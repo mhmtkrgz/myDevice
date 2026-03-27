@@ -7,11 +7,17 @@
 
 import SwiftUI
 import StoreKit
+import MessageUI
 
 // MARK: - Settings View
 struct SettingsView: View {
     @AppStorage("appearanceMode") private var appearanceMode: String = "System"
     @Environment(\.requestReview) var requestReview
+    @State private var showMailOptions = false
+    @State private var showMailCompose = false
+    @State private var showCopiedAlert = false
+
+    private let supportEmail = "support@mehmetkaragoz.com"
 
     private var currentLanguage: String {
         let code = Locale.current.language.languageCode?.identifier ?? "en"
@@ -76,6 +82,56 @@ struct SettingsView: View {
                     }
                 }
                 .foregroundStyle(.primary)
+
+                Button {
+                    showMailOptions = true
+                } label: {
+                    Label {
+                        Text("Contact")
+                    } icon: {
+                        Image(systemName: "envelope.fill")
+                            .foregroundStyle(.green)
+                    }
+                }
+                .foregroundStyle(.primary)
+                .confirmationDialog("Contact Support", isPresented: $showMailOptions, titleVisibility: .visible) {
+                    if MFMailComposeViewController.canSendMail() {
+                        Button("Apple Mail") { showMailCompose = true }
+                    }
+                    if let url = URL(string: "googlegmail://co?to=\(supportEmail)"),
+                       UIApplication.shared.canOpenURL(url) {
+                        Button("Gmail") { UIApplication.shared.open(url) }
+                    }
+                    if let url = URL(string: "ms-outlook://compose?to=\(supportEmail)"),
+                       UIApplication.shared.canOpenURL(url) {
+                        Button("Outlook") { UIApplication.shared.open(url) }
+                    }
+                    if let url = URL(string: "readdle-spark://compose?recipient=\(supportEmail)"),
+                       UIApplication.shared.canOpenURL(url) {
+                        Button("Spark") { UIApplication.shared.open(url) }
+                    }
+                    if let url = URL(string: "mailto:\(supportEmail)"),
+                       !MFMailComposeViewController.canSendMail(),
+                       UIApplication.shared.canOpenURL(url) {
+                        Button("Mail") { UIApplication.shared.open(url) }
+                    }
+                    Button("Copy Email Address") {
+                        UIPasteboard.general.string = supportEmail
+                        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                        showCopiedAlert = true
+                    }
+                    Button("Cancel", role: .cancel) {}
+                } message: {
+                    Text(supportEmail)
+                }
+                .sheet(isPresented: $showMailCompose) {
+                    MailComposeView(recipient: supportEmail)
+                }
+                .alert("Email Copied", isPresented: $showCopiedAlert) {
+                    Button("OK", role: .cancel) {}
+                } message: {
+                    Text(supportEmail)
+                }
 
                 Link(destination: URL(string: "https://example.com/privacy")!) {
                     Label {

@@ -39,6 +39,9 @@
         }
       }
     },
+    "Apple Mail" : {
+
+    },
     "ATT Status" : {
       "localizations" : {
         "de" : {
@@ -70,6 +73,9 @@
           }
         }
       }
+    },
+    "Cancel" : {
+
     },
     "Carrier 1" : {
       "extractionState" : "manual",
@@ -121,7 +127,16 @@
         }
       }
     },
+    "Contact" : {
+
+    },
+    "Contact Support" : {
+
+    },
     "Copied" : {
+
+    },
+    "Copy Email Address" : {
 
     },
     "Dark" : {
@@ -171,6 +186,12 @@
           }
         }
       }
+    },
+    "Email Copied" : {
+
+    },
+    "Gmail" : {
+
     },
     "Hardware & Storage" : {
       "localizations" : {
@@ -277,6 +298,9 @@
         }
       }
     },
+    "Mail" : {
+
+    },
     "My Device" : {
       "localizations" : {
         "de" : {
@@ -309,7 +333,13 @@
         }
       }
     },
+    "OK" : {
+
+    },
     "Open Settings" : {
+
+    },
+    "Outlook" : {
 
     },
     "Permission Required" : {
@@ -381,6 +411,9 @@
           }
         }
       }
+    },
+    "Spark" : {
+
     },
     "Storage" : {
       "localizations" : {
@@ -477,6 +510,9 @@
           }
         }
       }
+    },
+    "Yahoo Mail" : {
+
     }
   },
   "version" : "1.0"

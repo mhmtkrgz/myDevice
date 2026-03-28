@@ -102,6 +102,10 @@ struct SettingsView: View {
                        UIApplication.shared.canOpenURL(url) {
                         Button("Gmail") { UIApplication.shared.open(url) }
                     }
+                    if let url = URL(string: "ymail://mail/compose?to=\(supportEmail)"),
+                       UIApplication.shared.canOpenURL(url) {
+                        Button("Yahoo Mail") { UIApplication.shared.open(url) }
+                    }
                     if let url = URL(string: "ms-outlook://compose?to=\(supportEmail)"),
                        UIApplication.shared.canOpenURL(url) {
                         Button("Outlook") { UIApplication.shared.open(url) }

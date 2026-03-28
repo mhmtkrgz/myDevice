@@ -8,6 +8,7 @@
 import SwiftUI
 import AppTrackingTransparency
 import Firebase
+import AMRSDK
 
 @main
 struct mydeviceApp: App {
@@ -16,6 +17,7 @@ struct mydeviceApp: App {
 
     init() {
         FirebaseApp.configure()
+        AMRSDK.start(withAppId: "74a99ca3-b483-4d0f-b765-d0e1bcf59650")
     }
 
     var preferredColorScheme: ColorScheme? {

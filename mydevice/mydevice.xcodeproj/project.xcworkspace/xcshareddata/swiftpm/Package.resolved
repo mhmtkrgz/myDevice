@@ -1,5 +1,5 @@
 {
-  "originHash" : "4dab0943bee48f67951cde10f3bb53522b73267796e03c145c889a9285a41c0b",
+  "originHash" : "a1569f9895aa2be8e24832f98525d5da4eb90b5d158a82691c15b47eb72a13d7",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -8,15 +8,6 @@
       "state" : {
         "revision" : "bbe8b69694d7873315fd3a4ad41efe043e1c07c5",
         "version" : "1.2024072200.0"
-      }
-    },
-    {
-      "identity" : "amr-ios-sdk",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/admost/AMR-IOS-SDK",
-      "state" : {
-        "revision" : "fd89e7cdc37b3dc30a0454177445fbb2f2e7e5e8",
-        "version" : "1.5.84"
       }
     },
     {
@@ -98,15 +89,6 @@
       "state" : {
         "revision" : "040d087ac2267d2ddd4cca36c757d1c6a05fdbfe",
         "version" : "101.0.0"
-      }
-    },
-    {
-      "identity" : "kokteyl-log-sdk",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kokteyldev/KOKTEYL-LOG-SDK.git",
-      "state" : {
-        "revision" : "d4cf651e3c3d591748a8887a0a04ab0f5bf7c81c",
-        "version" : "1.1.4"
       }
     },
     {

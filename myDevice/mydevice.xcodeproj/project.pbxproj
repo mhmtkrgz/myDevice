@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EDEF28B12F7694B9000FDBF0 /* AMRSDK in Frameworks */ = {isa = PBXBuildFile; productRef = EDEF28B02F7694B9000FDBF0 /* AMRSDK */; };
 		EDEF28B42F7694D9000FDBF0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = EDEF28B32F7694D9000FDBF0 /* FirebaseAnalytics */; };
 		EDEF28B62F7694D9000FDBF0 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = EDEF28B52F7694D9000FDBF0 /* FirebaseCrashlytics */; };
 /* End PBXBuildFile section */
@@ -31,7 +30,6 @@
 			files = (
 				EDEF28B62F7694D9000FDBF0 /* FirebaseCrashlytics in Frameworks */,
 				EDEF28B42F7694D9000FDBF0 /* FirebaseAnalytics in Frameworks */,
-				EDEF28B12F7694B9000FDBF0 /* AMRSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +73,6 @@
 			);
 			name = mydevice;
 			packageProductDependencies = (
-				EDEF28B02F7694B9000FDBF0 /* AMRSDK */,
 				EDEF28B32F7694D9000FDBF0 /* FirebaseAnalytics */,
 				EDEF28B52F7694D9000FDBF0 /* FirebaseCrashlytics */,
 			);
@@ -110,7 +107,6 @@
 			mainGroup = EDEF28902F769332000FDBF0;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				EDEF28AF2F7694B9000FDBF0 /* XCRemoteSwiftPackageReference "AMR-IOS-SDK" */,
 				EDEF28B22F7694D9000FDBF0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -372,14 +368,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EDEF28AF2F7694B9000FDBF0 /* XCRemoteSwiftPackageReference "AMR-IOS-SDK" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/admost/AMR-IOS-SDK";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.84;
-			};
-		};
 		EDEF28B22F7694D9000FDBF0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -391,11 +379,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EDEF28B02F7694B9000FDBF0 /* AMRSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EDEF28AF2F7694B9000FDBF0 /* XCRemoteSwiftPackageReference "AMR-IOS-SDK" */;
-			productName = AMRSDK;
-		};
 		EDEF28B32F7694D9000FDBF0 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EDEF28B22F7694D9000FDBF0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

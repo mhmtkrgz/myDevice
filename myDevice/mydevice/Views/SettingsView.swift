@@ -19,6 +19,21 @@ struct SettingsView: View {
 
     private let supportEmail = "support@mehmetkaragoz.com"
 
+    private var deviceInfoBody: String {
+        let device = UIDevice.current
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
+        let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?"
+        return """
+
+
+---
+Device: \(DeviceServiceProvider().getDeviceModelName())
+iOS: \(device.systemVersion)
+App Version: \(appVersion) (\(buildNumber))
+Language: \(Locale.current.language.languageCode?.identifier.uppercased() ?? "?")
+"""
+    }
+
     private var currentLanguage: String {
         let code = Locale.current.language.languageCode?.identifier ?? "en"
         return Locale.current.localizedString(forLanguageCode: code) ?? "English"
@@ -98,23 +113,28 @@ struct SettingsView: View {
                     if MFMailComposeViewController.canSendMail() {
                         Button("Apple Mail") { showMailCompose = true }
                     }
-                    if let url = URL(string: "googlegmail://co?to=\(supportEmail)"),
+                    if let encoded = deviceInfoBody.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                       let url = URL(string: "googlegmail://co?to=\(supportEmail)&body=\(encoded)"),
                        UIApplication.shared.canOpenURL(url) {
                         Button("Gmail") { UIApplication.shared.open(url) }
                     }
-                    if let url = URL(string: "ymail://mail/compose?to=\(supportEmail)"),
+                    if let encoded = deviceInfoBody.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                       let url = URL(string: "ymail://mail/compose?to=\(supportEmail)&body=\(encoded)"),
                        UIApplication.shared.canOpenURL(url) {
                         Button("Yahoo Mail") { UIApplication.shared.open(url) }
                     }
-                    if let url = URL(string: "ms-outlook://compose?to=\(supportEmail)"),
+                    if let encoded = deviceInfoBody.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                       let url = URL(string: "ms-outlook://compose?to=\(supportEmail)&body=\(encoded)"),
                        UIApplication.shared.canOpenURL(url) {
                         Button("Outlook") { UIApplication.shared.open(url) }
                     }
-                    if let url = URL(string: "readdle-spark://compose?recipient=\(supportEmail)"),
+                    if let encoded = deviceInfoBody.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                       let url = URL(string: "readdle-spark://compose?recipient=\(supportEmail)&body=\(encoded)"),
                        UIApplication.shared.canOpenURL(url) {
                         Button("Spark") { UIApplication.shared.open(url) }
                     }
-                    if let url = URL(string: "mailto:\(supportEmail)"),
+                    if let encoded = deviceInfoBody.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                       let url = URL(string: "mailto:\(supportEmail)?body=\(encoded)"),
                        !MFMailComposeViewController.canSendMail(),
                        UIApplication.shared.canOpenURL(url) {
                         Button("Mail") { UIApplication.shared.open(url) }
@@ -129,7 +149,7 @@ struct SettingsView: View {
                     Text(supportEmail)
                 }
                 .sheet(isPresented: $showMailCompose) {
-                    MailComposeView(recipient: supportEmail)
+                    MailComposeView(recipient: supportEmail, body: deviceInfoBody)
                 }
                 .alert("Email Copied", isPresented: $showCopiedAlert) {
                     Button("OK", role: .cancel) {}

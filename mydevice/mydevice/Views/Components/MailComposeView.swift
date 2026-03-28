@@ -10,12 +10,14 @@ import MessageUI
 
 struct MailComposeView: UIViewControllerRepresentable {
     let recipient: String
+    let body: String
 
     @Environment(\.dismiss) private var dismiss
 
     func makeUIViewController(context: Context) -> MFMailComposeViewController {
         let vc = MFMailComposeViewController()
         vc.setToRecipients([recipient])
+        vc.setMessageBody(body, isHTML: false)
         vc.mailComposeDelegate = context.coordinator
         return vc
     }

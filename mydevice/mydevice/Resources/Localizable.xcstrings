@@ -2,10 +2,36 @@
   "sourceLanguage" : "en",
   "strings" : {
     "Access Denied" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zugriff verweigert"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erişim Reddedildi"
+          }
+        }
+      }
     },
     "Allow tracking permission to display your real IDFA." : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erlauben Sie die Tracking-Berechtigung, um Ihre echte IDFA anzuzeigen."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerçek IDFA'nızı görüntülemek için izleme iznine izin verin."
+          }
+        }
+      }
     },
     "App Language" : {
       "localizations" : {
@@ -40,7 +66,20 @@
       }
     },
     "Apple Mail" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple Mail"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple Mail"
+          }
+        }
+      }
     },
     "ATT Status" : {
       "localizations" : {
@@ -75,7 +114,20 @@
       }
     },
     "Cancel" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İptal"
+          }
+        }
+      }
     },
     "Carrier 1" : {
       "extractionState" : "manual",
@@ -128,16 +180,68 @@
       }
     },
     "Contact" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontakt"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İletişim"
+          }
+        }
+      }
     },
     "Contact Support" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support kontaktieren"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Destek ile İletişim"
+          }
+        }
+      }
     },
     "Copied" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopiert"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopyalandı"
+          }
+        }
+      }
     },
     "Copy Email Address" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-Mail-Adresse kopieren"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-posta Adresini Kopyala"
+          }
+        }
+      }
     },
     "Dark" : {
       "localizations" : {
@@ -188,10 +292,36 @@
       }
     },
     "Email Copied" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-Mail kopiert"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-posta Kopyalandı"
+          }
+        }
+      }
     },
     "Gmail" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gmail"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gmail"
+          }
+        }
+      }
     },
     "Hardware & Storage" : {
       "localizations" : {
@@ -226,13 +356,52 @@
       }
     },
     "IDFA" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IDFA"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IDFA"
+          }
+        }
+      }
     },
     "IDFA is unavailable. Open Settings to enable tracking for this app." : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IDFA ist nicht verfügbar. Öffnen Sie die Einstellungen, um das Tracking für diese App zu aktivieren."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IDFA kullanılamıyor. Bu uygulama için izlemeyi etkinleştirmek üzere Ayarlar'ı açın."
+          }
+        }
+      }
     },
     "IDFV" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IDFV"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IDFV"
+          }
+        }
+      }
     },
     "iOS" : {
       "localizations" : {
@@ -299,7 +468,20 @@
       }
     },
     "Mail" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mail"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posta"
+          }
+        }
+      }
     },
     "My Device" : {
       "localizations" : {
@@ -334,16 +516,68 @@
       }
     },
     "OK" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamam"
+          }
+        }
+      }
     },
     "Open Settings" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen öffnen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayarları Aç"
+          }
+        }
+      }
     },
     "Outlook" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outlook"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outlook"
+          }
+        }
+      }
     },
     "Permission Required" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berechtigung erforderlich"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İzin Gerekli"
+          }
+        }
+      }
     },
     "Preferences" : {
       "localizations" : {
@@ -394,7 +628,20 @@
       }
     },
     "Request Permission" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berechtigung anfragen"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İzin İste"
+          }
+        }
+      }
     },
     "Settings" : {
       "localizations" : {
@@ -413,7 +660,20 @@
       }
     },
     "Spark" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spark"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spark"
+          }
+        }
+      }
     },
     "Storage" : {
       "localizations" : {
@@ -436,7 +696,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Destek"
+            "value" : "Support"
           }
         },
         "tr" : {
@@ -512,7 +772,20 @@
       }
     },
     "Yahoo Mail" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yahoo Mail"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yahoo Mail"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

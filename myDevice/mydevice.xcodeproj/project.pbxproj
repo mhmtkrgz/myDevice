@@ -24,6 +24,30 @@
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EDEF28C02F769400000FDBF0 /* Run Crashlytics dSYM Upload */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Run Crashlytics dSYM Upload";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		EDEF28962F769332000FDBF0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -64,6 +88,7 @@
 				EDEF28952F769332000FDBF0 /* Sources */,
 				EDEF28962F769332000FDBF0 /* Frameworks */,
 				EDEF28972F769332000FDBF0 /* Resources */,
+				EDEF28C02F769400000FDBF0 /* Run Crashlytics dSYM Upload */,
 			);
 			buildRules = (
 			);

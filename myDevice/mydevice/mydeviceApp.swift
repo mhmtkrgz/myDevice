@@ -7,11 +7,16 @@
 
 import SwiftUI
 import AppTrackingTransparency
+import Firebase
 
 @main
 struct mydeviceApp: App {
     @AppStorage("appearanceMode") private var appearanceMode: String = "System"
     @State private var showSplash = true
+
+    init() {
+        FirebaseApp.configure()
+    }
 
     var preferredColorScheme: ColorScheme? {
         switch appearanceMode {
